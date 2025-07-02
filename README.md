@@ -10,9 +10,17 @@
 0.4
 ![image](https://github.com/user-attachments/assets/7f3b9e39-49b9-4064-81d3-13a1758b717a)
 
-<h4>Step 1: Attach permissions to StaleWindowTester</h4>
+<h4> Step 1: Create a User in AWS for this lab:</h4>
 
-![image](https://github.com/user-attachments/assets/44dccb10-fee1-480c-8cce-cd4b562cdfa6)
+![image](https://github.com/user-attachments/assets/734ca8e7-0870-4367-b033-062ac1ff5bda)
+![image](https://github.com/user-attachments/assets/5f03f540-6168-407a-b507-e945783fd078)
+
+<h4>Step 2: Create a policy for Users to Assume Roles</h4>
+![image](https://github.com/user-attachments/assets/a8b4799a-fbd0-47f4-b6f0-df284192884a)
+
+
+<h4>Step 3: Attach permissions to StaleWindowTester</h4>
+
 
 
 <P>in AWS, To “assume a role” means:</P>
@@ -20,6 +28,6 @@
 So the user takes on the permissions of the role — but only temporarily (typically 15 minutes to a few hours).
 
 
-<h4>Step 2: Generate access keys for StaleWindowTester</h4>
+<h4>Step 4: Generate access keys for StaleWindowTester</h4>
 
 
