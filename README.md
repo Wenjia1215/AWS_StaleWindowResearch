@@ -9,6 +9,7 @@
 
 ![image](https://github.com/user-attachments/assets/44dccb10-fee1-480c-8cce-cd4b562cdfa6)
 
+
 <P>in AWS, To “assume a role” means:</P>
 <P>A user or service requests temporary credentials (via sts:AssumeRole) to “become” that role for a short period of time.</P>
 So the user takes on the permissions of the role — but only temporarily (typically 15 minutes to a few hours).
