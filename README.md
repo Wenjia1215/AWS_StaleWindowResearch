@@ -44,3 +44,5 @@ So the user takes on the permissions of the role — but only temporarily (typic
 
 
 </ul>
+
+![image](https://github.com/user-attachments/assets/ad75ec5c-f4bf-4e90-93fc-996b585cc425)
