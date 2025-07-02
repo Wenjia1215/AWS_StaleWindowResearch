@@ -33,4 +33,14 @@ So the user takes on the permissions of the role — but only temporarily (typic
 
 <h4>Step 4: Generate access keys for StaleWindowTester</h4>
 
+<ul>
+  <li>Go to IAM → Users → StaleWindowTester</li>
 
+<li>Select Security credentials tab</li>
+
+<li>Under Access keys, click Create access key</li>
+
+<li>Download the CSV or copy the credentials</li>
+
+
+</ul>
