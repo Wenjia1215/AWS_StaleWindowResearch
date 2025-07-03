@@ -223,3 +223,46 @@ create a trail:
 
 
 
+<h2> Re-run the test (each trial)</h2>
+<h3>Step 1: Re-assume the role to get new STS credentials</h3>
+run from the terminal:
+<code>
+  aws sts assume-role \
+  --role-arn arn:aws:iam::<YOUR_ACCOUNT_ID>:role/StaleWindowRole \
+  --role-session-name test-session \
+  --profile staleuser
+    </code>
+for me:
+    <code>
+aws sts assume-role \
+  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-session-name test-session \
+  --profile staleuser
+</code>
+after running, Copy:
+
+AccessKeyId
+
+SecretAccessKey
+
+SessionToken
+
+or save them in csv.
+
+<h3>step 2: Update ~/.aws/credentials with new temp credentials</h3>
+Open the credentials file:
+<code>nano ~/.aws/credentials
+</code>
+Update the [tempcreds] profile:
+
+<code>[tempcreds]
+aws_access_key_id = YOUR_NEW_ACCESS_KEY
+aws_secret_access_key = YOUR_NEW_SECRET
+aws_session_token = YOUR_NEW_SESSION_TOKEN
+</code>
+
+<h2>Step 3: Start the logger script</h2>
+in the terminal:
+<code>
+  ./sts_stale_window_logger.sh
+</code>
