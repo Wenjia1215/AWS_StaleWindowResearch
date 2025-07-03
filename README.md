@@ -51,6 +51,19 @@ So the user takes on the permissions of the role — but only temporarily (typic
 <h4>Step 5: Configure CLI with StaleWindowTester</h4>
 on my terminal:
 <code>aws configure --profile staleuser
-</code>
+</code>w
+Enter:
+
+Access key ID: (from the CSV) AKIAYNKSYTAO4UF7NTNJ
+
+
+Secret access key: (from the CSV)cU41JmBxBMssLWyFeYkub+uPair4l2dK0mxlCwfz
+
+
+Region: us-east-1
+
+Output format: json
+
+
 
 
