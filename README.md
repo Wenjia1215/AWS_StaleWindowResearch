@@ -153,8 +153,28 @@ Output format: json</code>
 
 <h4>Step 8: Test the temp session</h4>
 
+run: <code>aws s3 ls --profile tempcreds
+</code>
+this will list all the s3 buicket if this role has permission "s3:ListAllMyBuckets" and below is a successful screenshot:
 
-revoke the session:
+![image](https://github.com/user-attachments/assets/d75896be-f0dd-4e5b-927c-e521d6883e39)
+ If not, it would return AccessDenied.
+
+
+<h4>step 8.1</h4> 
+To measure how long STS tokens remain valid after you revoke them, 
+
+run this script in the terminal:
+<code>while true; do
+  date
+  aws s3 ls --profile tempcreds || echo "Access denied"
+  sleep 1
+done
+</code>
+
+<h4> step 8.3: revoke the session:
+
+In the AWS Console → IAM → Roles → StaleWindowRole → Revoke active sessions:
 ![image](https://github.com/user-attachments/assets/e5007cc0-b541-46ff-a556-266b457064d5)
 ![image](https://github.com/user-attachments/assets/8ce90f32-76db-4ede-ad3f-485709bcab3b)
 
