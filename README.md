@@ -138,5 +138,14 @@ An error occurred (AccessDenied) when calling the AssumeRole operation: User: ar
 </code>
 
 
+<h4>step 7: Create a new CLI profile for the temp STS credentials</h4>
+<code>aws configure --profile tempcreds
+</code>
+then enter :
+<code>AWS Access Key ID → from STS AccessKeyId
 
+AWS Secret Access Key → from  STS SecretAccessKey
 
+Default region name → us-east-1 
+
+Output format: json</code>
