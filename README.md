@@ -64,6 +64,14 @@ Region: us-east-1
 
 Output format: json
 
+Encounter an error here:
+![image](https://github.com/user-attachments/assets/10431259-3dd5-407c-8064-016b0faaa9c2)
+
+This role's policy is not updated to trust the user:
+![image](https://github.com/user-attachments/assets/008038b9-63f5-454e-9ed2-1a5bdf42544d)
+
+
+
 <h4>Step 6: Use sts:AssumeRole</h4>
 run:
 <code>aws sts assume-role \
