@@ -227,12 +227,11 @@ create a trail:
 <h3>Step 1: Re-assume the role to get new STS credentials</h3>
 run from the terminal:
 
-    <code>
-aws sts assume-role \
+<code>aws sts assume-role \
   --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
   --role-session-name test-session \
-  --profile staleuser
-</code>
+  --profile staleuser</code>
+  
 after running, Copy:
 
 AccessKeyId
