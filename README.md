@@ -80,6 +80,63 @@ run:
   --profile staleuser
 </code>
 
+success, and get our temporary STS credential set:
+
+![image](https://github.com/user-attachments/assets/a9084ab8-ddff-4d11-872f-abf6a2a768d3)
+
+<code>Last login: Sun Jun 29 22:13:10 on console
+(base) ~ % aws configure --profile staleuser
+
+AWS Access Key ID [None]: AKIAYNKSYTAO4UF7NTNJ
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]: json
+(base) ~ % aws configure --profile staleuser
+
+AWS Access Key ID [****************NTNJ]: AKIAYNKSYTAO4UF7NTNJ
+AWS Secret Access Key [****************Cwfz]: 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
+Default region name [us-east-1]: us-east-1
+Default output format [json]: json
+(base) ~ % aws sts assume-role \
+  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-session-name test-session \
+  --profile staleuser
+
+
+An error occurred (AccessDenied) when calling the AssumeRole operation: User: arn:aws:iam::578383550493:user/StaleWindowTester is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::578383550493:role/StaleWindowRole
+(base) ~ % aws sts assume-role \
+  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-session-name test-session \
+  --profile staleuser
+
+
+
+
+{
+    "Credentials": {
+        "AccessKeyId": "ASIAYNKSYTAOWJVGG3OV",
+        "SecretAccessKey": "rRZy9Aaf02O3NYb3GOEN2wRPcXrTzeQW+NcLuuu0",
+        "SessionToken": "IQoJb3JpZ2luX2VjEA4aCXVzLWVhc3QtMSJHMEUCIQC7iLRZLtAShtbQDVT1RykHwXBMQN8vgmVuJV6einj29gIgedRfsXYzLMR3m15a15S7w3H6uQUZb8XBCSr8MpUhCWsqmQIIFxACGgw1NzgzODM1NTA0OTMiDPOLxVWI1W88lzA3tSr2AVv8VaM4+F85TM1jFdbOC3P6JvBBCt4XZmcTaYHqkikwDHijjK4OYeYdibjsFTzV1E32+ZiUQ2sKhg1e+AkFEM0+0ctENCe2ULz/8KuqMA3LtOuKgndMqex35i2IdyRUE+l/9qIpVISD6LMvFPvYDdiiWS0HsFlv5ECxvAeNeLCQoeb00Lhhkm6189uRvNyx/rWHD6QeMbQ317wjTe4ltt5/6Fx/06B5VuDipGrGqvwA092Wki7OzBTyVpgA2umsPQqcKTDXmHgBZG1pthA2zXHQKIfX15jOpYnAT+6iEgDKzy1dK4PqBFzl7BehEqUuCjBO18kl3TCPiJrDBjqdAWizjSad4xAcjsdAD0ECzDzw1bIE5NBry+mUFYSTWQnci6yAHX5MtBKBbtoLz1DfK4RGurXrYWNMbii4pDfRgwdKlTd/wUBDhm7YVrz7tssBBhdmwxD05tz5UPNxjvV3oMZn0KcTWDV6S2cORQk6L/rDEfNv5FFDfZY3vGFnxdZgr5tbcf5ja2hzxkFqD0ZvI5sUJyV8c8jZFMONcrI=",
+        "Expiration": "2025-07-03T14:22:23+00:00"
+    },
+    "AssumedRoleUser": {
+        "AssumedRoleId": "AROAYNKSYTAORBBEFLMOQ:test-session",
+        "Arn": "arn:aws:sts::578383550493:assumed-role/StaleWindowRole/test-session"
+    }
+}
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+</code>
+
 
 
 
