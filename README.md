@@ -226,13 +226,7 @@ create a trail:
 <h2> Re-run the test (each trial)</h2>
 <h3>Step 1: Re-assume the role to get new STS credentials</h3>
 run from the terminal:
-<code>
-  aws sts assume-role \
-  --role-arn arn:aws:iam::<YOUR_ACCOUNT_ID>:role/StaleWindowRole \
-  --role-session-name test-session \
-  --profile staleuser
-    </code>
-for me:
+
     <code>
 aws sts assume-role \
   --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
