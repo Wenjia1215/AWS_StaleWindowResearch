@@ -157,4 +157,8 @@ revoke the session:
 ![image](https://github.com/user-attachments/assets/8ce90f32-76db-4ede-ad3f-485709bcab3b)
 
 
+create a trail: 
+![image](https://github.com/user-attachments/assets/6ba9e375-7bb5-4b3e-8e15-b0a139ef1ec0)
+
+
 
