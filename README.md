@@ -51,8 +51,8 @@ So the user takes on the permissions of the role — but only temporarily (typic
 <h4>Step 5: Configure CLI with StaleWindowTester</h4>
 on my terminal:
 <code>aws configure --profile staleuser
-</code>w
-Enter:
+</code>
+Then enter for prompt:
 
 Access key ID: (from the CSV) AKIAYNKSYTAO4UF7NTNJ
 
@@ -63,6 +63,14 @@ Secret access key: (from the CSV)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
 Region: us-east-1
 
 Output format: json
+
+<h4>Step 6: Use sts:AssumeRole</h4>
+run:
+<code>aws sts assume-role \
+  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-session-name test-session \
+  --profile staleuser
+</code>
 
 
 
