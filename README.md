@@ -72,7 +72,7 @@ This role's policy is not updated to trust the user:
 
 
 
-<h4>Step 6: Use sts:AssumeRole</h4>
+<h4>Step 6: Use sts: AssumeRole</h4>
 run:
 <code>aws sts assume-role \
   --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
@@ -136,12 +136,12 @@ An error occurred (AccessDenied) when calling the AssumeRole operation: User: ar
 ~
 (END)
 </code>
+This tempcreds profile represents a live STS session tied to our <code>StaleWindowRole</code>.
 
-
-<h4>step 7: Create a new CLI profile for the temp STS credentials</h4>
+<h4> Step 7: Create a new CLI profile for the temp STS credentials</h4>
 <code>aws configure --profile tempcreds
 </code>
-then enter :
+Then enter :
 <code>AWS Access Key ID → from STS AccessKeyId
 
 AWS Secret Access Key → from  STS SecretAccessKey
@@ -150,6 +150,8 @@ Default region name → us-east-1
 
 Output format: json</code>
 
+
+<h4>Step 8: Test the temp session</h4>
 
 
 revoke the session:
