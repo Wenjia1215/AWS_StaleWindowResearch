@@ -160,27 +160,6 @@ this will list all the s3 buicket if this role has permission "s3:ListAllMyBucke
 ![image](https://github.com/user-attachments/assets/d75896be-f0dd-4e5b-927c-e521d6883e39)
  If not, it would return AccessDenied.
 
-
-<h4>step 8.1</h4> 
-To measure how long STS tokens remain valid after you revoke them, 
-
-run this script in the terminal:
-<code>while true; do
-  date
-  aws s3 ls --profile tempcreds || echo "Access denied"
-  sleep 1
-done
-</code>
-
-<h4> step 8.3: revoke the session:</h4>
-
-In the AWS Console → IAM → Roles → StaleWindowRole → Revoke active sessions:
-
-![image](https://github.com/user-attachments/assets/e5007cc0-b541-46ff-a556-266b457064d5)
-![image](https://github.com/user-attachments/assets/8ce90f32-76db-4ede-ad3f-485709bcab3b)
-
-and we can see the aws s3 ls call keep working for a few seconds after revocation, until eventually getting “Access denied.”
-
 <h5>and here we don't have a s3 bucket to show, so i create a s3 bucket.</h5>
 <ul>
   <li>Go to: https://s3.console.aws.amazon.com/s3/home</li>
@@ -216,6 +195,28 @@ Go to IAM → Roles → StaleWindowRole</li>
 
 </code>
 </ul>
+
+<h4>step 8.1</h4> 
+To measure how long STS tokens remain valid after you revoke them, 
+
+run this script in the terminal:
+<code>while true; do
+  date
+  aws s3 ls --profile tempcreds || echo "Access denied"
+  sleep 1
+done
+</code>
+
+<h4> step 8.2: revoke the session:</h4>
+
+In the AWS Console → IAM → Roles → StaleWindowRole → Revoke active sessions:
+
+![image](https://github.com/user-attachments/assets/e5007cc0-b541-46ff-a556-266b457064d5)
+![image](https://github.com/user-attachments/assets/8ce90f32-76db-4ede-ad3f-485709bcab3b)
+
+and we can see the aws s3 ls call keep working for a few seconds after revocation, until eventually getting “Access denied.”
+
+
 
 create a trail: 
 ![image](https://github.com/user-attachments/assets/6ba9e375-7bb5-4b3e-8e15-b0a139ef1ec0)
