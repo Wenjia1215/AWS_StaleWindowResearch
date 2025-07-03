@@ -172,12 +172,50 @@ run this script in the terminal:
 done
 </code>
 
-<h4> step 8.3: revoke the session:
+<h4> step 8.3: revoke the session:</h4>
 
 In the AWS Console → IAM → Roles → StaleWindowRole → Revoke active sessions:
+
 ![image](https://github.com/user-attachments/assets/e5007cc0-b541-46ff-a556-266b457064d5)
 ![image](https://github.com/user-attachments/assets/8ce90f32-76db-4ede-ad3f-485709bcab3b)
 
+and we can see the aws s3 ls call keep working for a few seconds after revocation, until eventually getting “Access denied.”
+
+<h5>and here we don't have a s3 bucket to show, so i create a s3 bucket.</h5>
+<ul>
+  <li>Go to: https://s3.console.aws.amazon.com/s3/home</li>
+<li>Click Create bucket</li>
+<li>Bucket name: stale-window-test-bucket</li>
+<li>Region: us-east-1</li>
+
+</ul>
+<h5>then update our IAM role's permissions</h5>
+<ul>
+  <li>Add a new inline policy (don't edit existing)
+Go to IAM → Roles → StaleWindowRole</li>
+
+<li>Click Add inline policy</li>
+
+<li>Choose the JSON tab</li>
+
+<li>Paste this policy:</li>
+<code>
+  {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+</code>
+</ul>
 
 create a trail: 
 ![image](https://github.com/user-attachments/assets/6ba9e375-7bb5-4b3e-8e15-b0a139ef1ec0)
