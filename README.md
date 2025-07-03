@@ -149,3 +149,9 @@ AWS Secret Access Key → from  STS SecretAccessKey
 Default region name → us-east-1 
 
 Output format: json</code>
+
+
+
+revoke the session:
+![image](https://github.com/user-attachments/assets/e5007cc0-b541-46ff-a556-266b457064d5)
+
