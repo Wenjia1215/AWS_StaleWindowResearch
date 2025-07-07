@@ -218,11 +218,6 @@ and we can see the aws s3 ls call keep working for a few seconds after revocatio
 
 
 
-create a trail: 
-![image](https://github.com/user-attachments/assets/6ba9e375-7bb5-4b3e-8e15-b0a139ef1ec0)
-
-
-
 <h2> Re-run the test (each trial)</h2>
 <h3>Step 1: Re-assume the role to get new STS credentials</h3>
 run from the terminal:
