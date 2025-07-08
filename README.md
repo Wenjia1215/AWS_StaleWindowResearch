@@ -269,7 +269,15 @@ and should see something like below if it's working:
 ![image](https://github.com/user-attachments/assets/82952c12-f2f4-4515-96d0-680ac5deee85)
 
 <h2>Step 3: Start the logger script</h2>
-in the terminal:
+Run this in a new terminal tab:
 <code>
   ./sts_stale_window_logger.sh
 </code>
+
+![image](https://github.com/user-attachments/assets/816cdebc-926e-4d3a-a9cb-a9e9e35e59f5)
+
+<h3>tep 4: Revoke the Session in AWS Console</h3>
+
+![image](https://github.com/user-attachments/assets/fb835bc3-9d22-4de1-a980-5ac67ba8317a)
+Done:
+![image](https://github.com/user-attachments/assets/874269c7-a6a5-4709-875d-255fced623c2)
