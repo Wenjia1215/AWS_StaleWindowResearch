@@ -273,11 +273,15 @@ Run this in a new terminal tab:
 <code>
   ./sts_stale_window_logger.sh
 </code>
+it  shows: 
 
-![image](https://github.com/user-attachments/assets/816cdebc-926e-4d3a-a9cb-a9e9e35e59f5)
+![image](https://github.com/user-attachments/assets/778c2671-dfb4-4755-9f03-4307e0565ebb)
 
-<h3>tep 4: Revoke the Session in AWS Console</h3>
+<h3>Step 4: Revoke the Session in AWS Console</h3>
 
 ![image](https://github.com/user-attachments/assets/fb835bc3-9d22-4de1-a980-5ac67ba8317a)
 Done:
 ![image](https://github.com/user-attachments/assets/874269c7-a6a5-4709-875d-255fced623c2)
+
+Back to the terminal, check the finish logging, it will show:
+![image](https://github.com/user-attachments/assets/816cdebc-926e-4d3a-a9cb-a9e9e35e59f5)
