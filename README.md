@@ -249,7 +249,10 @@ or save them in csv.
 Open the credentials file:
 <code>nano ~/.aws/credentials
 </code>
-Update the [tempcreds] profile:
+Or open it in VS Code, TextEdit, or another GUI editor:
+<code>open ~/.aws/credentials
+</code>
+then update the [tempcreds] profile using the new temp credentials:
 
 <code>[tempcreds]
 aws_access_key_id = YOUR_NEW_ACCESS_KEY
