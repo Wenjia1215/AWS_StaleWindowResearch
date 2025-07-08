@@ -243,6 +243,8 @@ SecretAccessKey
 
 SessionToken
 
+![image](https://github.com/user-attachments/assets/3647120a-f2e0-433c-b00a-3fc0026c5c01)
+
 or save them in csv.
 
 <h3>step 2: Update ~/.aws/credentials with new temp credentials</h3>
@@ -259,6 +261,12 @@ aws_access_key_id = YOUR_NEW_ACCESS_KEY
 aws_secret_access_key = YOUR_NEW_SECRET
 aws_session_token = YOUR_NEW_SESSION_TOKEN
 </code>
+
+we can verity access work by running:
+<code>aws sts get-caller-identity --profile tempcreds
+</code>
+and should see something like below if it's working:
+![image](https://github.com/user-attachments/assets/82952c12-f2f4-4515-96d0-680ac5deee85)
 
 <h2>Step 3: Start the logger script</h2>
 in the terminal:
