@@ -223,7 +223,8 @@ and we can see the aws s3 ls call keep working for a few seconds after revocatio
 after the first run, I realized that using cloudtrail to record the revoke timestamp and the script to record the role lost the permission timestamp is the most accurate and convenient. So before rerun, I created a cloudtrail first:
 
 ![image](https://github.com/user-attachments/assets/3c8f87de-ac85-42cf-b383-73c254d33c3e)
-
+![image](https://github.com/user-attachments/assets/e4758195-a8ce-4746-9266-6379b2c56bed)
+![image](https://github.com/user-attachments/assets/035eff8d-f96a-47ff-91f7-a16490131be3)
 
 
 <h3>Step 1: Re-assume the role to get new STS credentials</h3>
