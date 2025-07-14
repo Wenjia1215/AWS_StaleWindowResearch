@@ -197,7 +197,7 @@ Go to IAM → Roles → StaleWindowRole</li>
 </ul>
 
 <h4>step 8.1</h4> 
-To measure how long STS tokens remain valid after you revoke them, 
+To measure how long STS tokens remain valid after revoke them, 
 
 run this script in the terminal:
 <code>while true; do
@@ -257,9 +257,9 @@ Or open it in VS Code, TextEdit, or another GUI editor:
 then update the [tempcreds] profile using the new temp credentials:
 
 <code>[tempcreds]
-aws_access_key_id = YOUR_NEW_ACCESS_KEY
-aws_secret_access_key = YOUR_NEW_SECRET
-aws_session_token = YOUR_NEW_SESSION_TOKEN
+aws_access_key_id = NEW_ACCESS_KEY
+aws_secret_access_key = NEW_SECRET
+aws_session_token = NEW_SESSION_TOKEN
 </code>
 
 we can verity access work by running:
