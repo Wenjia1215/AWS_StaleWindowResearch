@@ -11,7 +11,7 @@ echo "Waiting for you to manually revoke the session in AWS Console..."
 # Mark revoke start time
 read -p "Press [Enter] the moment you click 'Revoke active sessions'... " 
 revoke_time=$(date +%s)
-echo "🧨 Revoke time marked: $(date -r $revoke_time)"
+echo "Revoke time marked: $(date -r $revoke_time)"
 
 # Start polling
 echo "Monitoring access every 1s..."
