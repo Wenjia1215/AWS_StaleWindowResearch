@@ -54,10 +54,10 @@ on my terminal:
 </code>
 Then enter for prompt:
 
-Access key ID: (from the CSV) AKIAYNKSYTAO4UF7NTNJ
+Access key ID: (from the CSV) AKIAYNK----------------
 
 
-Secret access key: (from the CSV)cU41JmBxBMssLWyFeYkub+uPair4l2dK0mxlCwfz
+Secret access key: (from the CSV)cU41JmBxBMssLWyFeYkub----------------
 
 
 Region: us-east-1
@@ -75,7 +75,7 @@ This role's policy is not updated to trust the user:
 <h4>Step 6: Use sts: AssumeRole</h4>
 run:
 <code>aws sts assume-role \
-  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-arn arn:aws:iam::578383----------------:role/StaleWindowRole \
   --role-session-name test-session \
   --profile staleuser
 </code>
@@ -87,25 +87,25 @@ success, and get our temporary STS credential set:
 <code>Last login: Sun Jun 29 22:13:10 on console
 (base) ~ % aws configure --profile staleuser
 
-AWS Access Key ID [None]: AKIAYNKSYTAO4UF7NTNJ
-AWS Secret Access Key [None]: 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
+AWS Access Key ID [None]: AKIAYNKSYTAO4----------------
+AWS Secret Access Key [None]: cU41JmBxBMssLWyF----------------
 Default region name [None]: us-east-1
 Default output format [None]: json
 (base) ~ % aws configure --profile staleuser
 
-AWS Access Key ID [****************NTNJ]: AKIAYNKSYTAO4UF7NTNJ
-AWS Secret Access Key [****************Cwfz]: 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
+AWS Access Key ID [****************NTNJ]: AKIAYNKSYT----------------
+AWS Secret Access Key [****************Cwfz]: cU41JmBxBMssLWyFeYkub+uPair----------------
 Default region name [us-east-1]: us-east-1
 Default output format [json]: json
 (base) ~ % aws sts assume-role \
-  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-arn arn:aws:iam::57----------------:role/StaleWindowRole \
   --role-session-name test-session \
   --profile staleuser
 
 
-An error occurred (AccessDenied) when calling the AssumeRole operation: User: arn:aws:iam::578383550493:user/StaleWindowTester is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::578383550493:role/StaleWindowRole
+An error occurred (AccessDenied) when calling the AssumeRole operation: User: arn:aws:iam::5783835----------------:user/StaleWindowTester is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::57838----------------:role/StaleWindowRole
 (base) ~ % aws sts assume-role \
-  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-arn arn:aws:iam::578----------------:role/StaleWindowRole \
   --role-session-name test-session \
   --profile staleuser
 
@@ -114,9 +114,9 @@ An error occurred (AccessDenied) when calling the AssumeRole operation: User: ar
 
 {
     "Credentials": {
-        "AccessKeyId": "ASIAYNKSYTAOWJVGG3OV",
-        "SecretAccessKey": "rRZy9Aaf02O3NYb3GOEN2wRPcXrTzeQW+NcLuuu0",
-        "SessionToken": "IQoJb3JpZ2luX2VjEA4aCXVzLWVhc3QtMSJHMEUCIQC7iLRZLtAShtbQDVT1RykHwXBMQN8vgmVuJV6einj29gIgedRfsXYzLMR3m15a15S7w3H6uQUZb8XBCSr8MpUhCWsqmQIIFxACGgw1NzgzODM1NTA0OTMiDPOLxVWI1W88lzA3tSr2AVv8VaM4+F85TM1jFdbOC3P6JvBBCt4XZmcTaYHqkikwDHijjK4OYeYdibjsFTzV1E32+ZiUQ2sKhg1e+AkFEM0+0ctENCe2ULz/8KuqMA3LtOuKgndMqex35i2IdyRUE+l/9qIpVISD6LMvFPvYDdiiWS0HsFlv5ECxvAeNeLCQoeb00Lhhkm6189uRvNyx/rWHD6QeMbQ317wjTe4ltt5/6Fx/06B5VuDipGrGqvwA092Wki7OzBTyVpgA2umsPQqcKTDXmHgBZG1pthA2zXHQKIfX15jOpYnAT+6iEgDKzy1dK4PqBFzl7BehEqUuCjBO18kl3TCPiJrDBjqdAWizjSad4xAcjsdAD0ECzDzw1bIE5NBry+mUFYSTWQnci6yAHX5MtBKBbtoLz1DfK4RGurXrYWNMbii4pDfRgwdKlTd/wUBDhm7YVrz7tssBBhdmwxD05tz5UPNxjvV3oMZn0KcTWDV6S2cORQk6L/rDEfNv5FFDfZY3vGFnxdZgr5tbcf5ja2hzxkFqD0ZvI5sUJyV8c8jZFMONcrI=",
+        "AccessKeyId": "ASIAYNKSYT----------------",
+        "SecretAccessKey": "rRZy9Aaf02O3NY----------------",
+        "SessionToken": "IQoJb3JpZ2luX2VjEA4aCXVzLWVhc3QtMSJHMEUCIQC7iLRZLtAShtbQDVT1RykHwXBMQN8vgmVuJV6einj29gIgedRfsXYzLMR3m15a15S7w3H6uQUZb8XBCSr8MpUhCWsqmQIIFxACGgw1NzgzODM1NTA0OTMiDPOLxVWI1W88lzA3tSr2AVv8VaM4+F85TM1jFdbOC3P6JvBBCt4XZmcTaYHqkikwDHijjK4OYeYdibjsFTzV1E32+ZiUQ2sKhg1e+AkFEM0+0ctENCe2ULz/8KuqMA3LtOuKgndMqex35i2IdyRUE+l/9qIpVISD6LMvFPv----------------",
         "Expiration": "2025-07-03T14:22:23+00:00"
     },
     "AssumedRoleUser": {
@@ -245,7 +245,7 @@ and we can see the aws s3 ls call keep working for a few seconds after revocatio
 <h3>Step 1: Get a new temporary STS credential set</h3>
 run:
 <code>aws sts assume-role \
-  --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
+  --role-arn arn:aws:iam::57838----------------:role/StaleWindowRole \
   --role-session-name test-session \
   --profile iam_user_0
 </code>
