@@ -1,39 +1,29 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
 
-ROLE_ARN="arn:aws:iam::578383550493:role/StaleWindowRole"
-PROFILE="staleuser"
+BUCKET="stale-window-test-bucket"
+PROFILE="tempcreds"
+OUTPUT="results.csv"
 
-assume() {
-  aws sts assume-role  \
-    --role-arn "$ROLE_ARN" \
-    --role-session-name test-session-$(date +%s) \
-    --profile "$PROFILE"   \
-    --output json
-}
+echo "revocation_time,first_failure_time,duration_seconds" >> "$OUTPUT"
 
-#  mint creds **first**
-CREDS_JSON=$(assume)
-export AWS_ACCESS_KEY_ID=$(jq -r .Credentials.AccessKeyId     <<<"$CREDS_JSON")
-export AWS_SECRET_ACCESS_KEY=$(jq -r .Credentials.SecretAccessKey <<<"$CREDS_JSON")
-export AWS_SESSION_TOKEN=$(jq -r .Credentials.SessionToken    <<<"$CREDS_JSON")
+echo "Waiting for you to manually revoke the session in AWS Console..."
 
-echo " Click  IAM ▶︎ Roles ▶︎ StaleWindowRole ▶︎ Revoke active sessions."
-echo "  Press [Enter] the instant click the Revoke button…"
-read -r
+# Mark revoke start time
+read -p "Press [Enter] the moment you click 'Revoke active sessions'... " 
+revoke_time=$(date +%s)
+echo "🧨 Revoke time marked: $(date -r $revoke_time)"
 
-REVOKE_TS=$(date)
-echo " Revoke marked: $REVOKE_TS"
-echo " Monitoring access every 1 s…"
-
-start=$(date +%s)
+# Start polling
+echo "Monitoring access every 1s..."
 while true; do
-  if aws sts get-caller-identity --output text &>/dev/null; then
+    aws s3 ls s3://$BUCKET --profile $PROFILE > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        fail_time=$(date +%s)
+        duration=$((fail_time - revoke_time))
+        echo "First failure at: $(date -r $fail_time)"
+        echo "$revoke_time,$fail_time,$duration" >> "$OUTPUT"
+        echo "Logged stale window: $duration seconds"
+        break
+    fi
     sleep 1
-  else
-    stop=$(date +%s)
-    echo " First AccessDenied at: $(date)"
-    echo " Stale window: $((stop - start)) seconds"
-    exit 0
-  fi
 done
