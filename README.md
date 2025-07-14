@@ -238,69 +238,24 @@ and we can see the aws s3 ls call keep working for a few seconds after revocatio
 
 
 <h2> Re-run the test (each trial)</h2>
-<h3>Step 0: Create a cloudtrail to record the revoke time</h3>
-after the first run, I realized that using cloudtrail to record the revoke timestamp and the script to record the role lost the permission timestamp is the most accurate and convenient. So before rerun, I created a cloudtrail first:
-
-![image](https://github.com/user-attachments/assets/3c8f87de-ac85-42cf-b383-73c254d33c3e)
-![image](https://github.com/user-attachments/assets/e4758195-a8ce-4746-9266-6379b2c56bed)
-![image](https://github.com/user-attachments/assets/035eff8d-f96a-47ff-91f7-a16490131be3)
-
-
-<h3>Step 1: Re-assume the role to get new STS credentials</h3>
-run from the terminal:
-
+<h3>Step 1: Get a new temporary STS credential set</h3>
+run:
 <code>aws sts assume-role \
   --role-arn arn:aws:iam::578383550493:role/StaleWindowRole \
   --role-session-name test-session \
-  --profile staleuser</code>
-  
-after running, Copy:
-
-AccessKeyId
-
-SecretAccessKey
-
-SessionToken
-
-![image](https://github.com/user-attachments/assets/3647120a-f2e0-433c-b00a-3fc0026c5c01)
-
-or save them in csv.
-
-<h3>step 2: Update ~/.aws/credentials with new temp credentials</h3>
-Open the credentials file:
-<code>nano ~/.aws/credentials
+  --profile iam_user_0
 </code>
-Or open it in VS Code, TextEdit, or another GUI editor:
+
+<h3>Step 2: Open a new shell and configure new temporary STS</h3>
+ <h4>Step 2.1: Configure tempcreds2 (or tempcreds x)</h4>
+<code>aws configure --profile tempcreds2
+</code>
+<img width="1494" height="230" alt="image" src="https://github.com/user-attachments/assets/33c53c54-362b-41ef-b8eb-2cc82ea8fadb" />
+<h4>Step 2.2: update ~/.aws/credentials with new temp credentials</h4>
+
+Open the credentials file:
 <code>open ~/.aws/credentials
 </code>
-then update the [tempcreds] profile using the new temp credentials:
+then update the [tempcreds x] profile using the new temp credentials.
 
-<code>[tempcreds]
-aws_access_key_id = NEW_ACCESS_KEY
-aws_secret_access_key = NEW_SECRET
-aws_session_token = NEW_SESSION_TOKEN
-</code>
-
-we can verity access work by running:
-<code>aws sts get-caller-identity --profile tempcreds
-</code>
-and should see something like below if it's working:
-![image](https://github.com/user-attachments/assets/82952c12-f2f4-4515-96d0-680ac5deee85)
-
-<h2>Step 3: Start the logger script</h2>
-Run this in a new terminal tab:
-<code>
-  ./sts_stale_window_logger.sh
-</code>
-it  shows: 
-
-![image](https://github.com/user-attachments/assets/778c2671-dfb4-4755-9f03-4307e0565ebb)
-
-<h3>Step 4: Revoke the Session in AWS Console</h3>
-
-![image](https://github.com/user-attachments/assets/fb835bc3-9d22-4de1-a980-5ac67ba8317a)
-Done:
-![image](https://github.com/user-attachments/assets/874269c7-a6a5-4709-875d-255fced623c2)
-
-Back to the terminal, check the finish logging, it will show:
-![image](https://github.com/user-attachments/assets/816cdebc-926e-4d3a-a9cb-a9e9e35e59f5)
+<h3>Step 3: </h3>
