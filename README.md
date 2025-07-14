@@ -218,15 +218,19 @@ Go to IAM → Roles → StaleWindowRole</li>
 <h4>step 8.1</h4> 
 To measure how long STS tokens remain valid after revoke them, 
 
-run this script in the terminal:
-<code>while true; do
-  date
-  aws s3 ls --profile tempcreds || echo "Access denied"
-  sleep 1
-done
-</code>
+run "sts_stale_window_logger.sh" script in the terminal.
 
-<h4> step 8.2: revoke the session:</h4>
+8.1.1: Save it as sts_stale_window_logger.sh
+<code>nano sts_stale_window_logger.sh</code>
+ctrl + x, and then Y save.
+
+8.1.2: Make it executable:
+<code>
+chmod +x sts_stale_window_logger.sh</code>
+Run it:
+<code>./sts_stale_window_logger.sh</code>
+
+<h4> Step 8.2: revoke the session:</h4>
 
 In the AWS Console → IAM → Roles → StaleWindowRole → Revoke active sessions:
 
@@ -258,4 +262,10 @@ Open the credentials file:
 </code>
 then update the [tempcreds x] profile using the new temp credentials.
 
-<h3>Step 3: </h3>
+<h3>Step 3: Test the new temp session</h3>
+run: <code>aws s3 ls --profile tempcreds2
+</code>
+
+<h3>Step 4: run the script: </h3>
+Run it:
+<code>./sts_stale_window_logger.sh</code>
