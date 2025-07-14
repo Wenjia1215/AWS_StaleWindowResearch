@@ -139,6 +139,7 @@ An error occurred (AccessDenied) when calling the AssumeRole operation: User: ar
 This tempcreds profile represents a live STS session tied to our <code>StaleWindowRole</code>.
 
 <h4> Step 7: Create a new CLI profile for the temp STS credentials</h4>
+<h4>7.1</h4>
 <code>aws configure --profile tempcreds
 </code>
 Then enter :
@@ -150,6 +151,24 @@ Default region name → us-east-1
 
 Output format: json</code>
 
+<h4>7.2</h4>
+<h4>After configure temporary profiles, we need to update ~/.aws/credentials with new temp credentials</h4>
+Open the credentials file:
+<code>nano ~/.aws/credentials
+</code>
+Or open it in VS Code, TextEdit, or another GUI editor:
+<code>open ~/.aws/credentials
+</code>
+then update the [tempcreds] profile using the new temp credentials.
+
+<code>[tempcreds]
+aws_access_key_id = NEW_ACCESS_KEY
+aws_secret_access_key = NEW_SECRET
+aws_session_token = NEW_SESSION_TOKEN
+
+
+
+</code></h5>
 
 <h4>Step 8: Test the temp session</h4>
 
